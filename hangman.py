@@ -21,7 +21,12 @@ print("""
 )
 
 lis = ["PYTHON", "APPLE", "MICROLAB", "HUMANS", "GREEN", "MICROSOFT", "GITHUB", "FLY", "TABLE"] #это список слов, которые будут угадывать
-word = random.choice(lis)   #использован модуль random который импортировал выше, для случайного выбора слова
+
+def randoms(name):                   #функция для случайного выбора слова
+    return random.choice(name)
+
+word = randoms(lis)     
+
 live = len(word) - 1 #это есть жизни, их количество равно длине слова минус 1
 
 name = []       #сюда будут сохранятся буквы, слова
