@@ -22,10 +22,7 @@ print("""
 
 lis = ["PYTHON", "APPLE", "MICROLAB", "HUMANS", "GREEN", "MICROSOFT", "GITHUB", "FLY", "TABLE"] #это список слов, которые будут угадывать
 
-def randoms(name):                   #функция для случайного выбора слова
-    return random.choice(name)
-
-word = randoms(lis)     
+word = random.choice(lis) #выбирает случайное слово из списка
 
 live = len(word) - 1 #это есть жизни, их количество равно длине слова минус 1
 
@@ -63,6 +60,7 @@ while blanks != word: #начинаем цыкл, он будет продолж
                     print("Не верно, у вас осталось {0} жизней".format(errors))   
                     if errors == 0:
                         print("Вы проиграли")
+                        #input("Press Enter")
                         break
                 
         elif letter in ABC_RU:  #если вводимая буква есть в русском алфавите
@@ -83,3 +81,5 @@ if __name__ == '__main__':
     
     if blanks == word: #это выполняется, если вы угадали слово
         print("Вы отгадали слово: {0}, поздравляю с победой".format(word))    #ввывод что вы угадали слово
+        #input("Press Enter")
+        
