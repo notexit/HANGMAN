@@ -1,7 +1,6 @@
 '''
 @author: notexit
 '''
-import random
 import sys #импортировал для закрытия программы
 import data #импортируем из созданого файла data.py
 #импортируем с файла data.py и присвоиваим им имя для удобства
@@ -12,16 +11,11 @@ ABC = data.ABC
 ABC_RU = data.ABC_RU
 menu = data.menu
 
-def words():    
-    lis = ["СНЕГОПАД", "АВТОМОБИЛЬ", "СТУЛ", "ПЕС", "КОТ", "СТОЛ", "НОВОСТИ", "ГЛАЗ", "МИНУС"]
-    return random.choice(lis)
-
 def start(letter):  #начало игры
-    word = words()
+    word = data.words()
     print("Вам нужно отгадать слово из {0} букв".format(len(word)))
     blanks = "-" * len(word)  
     print(blanks)
-    print(tex[word])
     while blanks != word:
         blanks = "-" * len(word)
         letter = input("# Введите букву --> ").upper() #предлагается ввод с клавиатуры и записывает ваше значение в letter    
@@ -61,6 +55,7 @@ def start(letter):  #начало игры
             print("Введите одну букву")
     if blanks == word: #это выполняется, если вы угадали слово
             print("Вы отгадали слово: {0}, поздравляю вы спасли человека".format(word))    #ввывод что вы угадали слово
+            print("Это слово означает : {0}".format(tex[word]))
             print(win)
     question = input("Еще раз?  'Д' - что бы сыграть еще раз, или 'ENTER' - для выхода : ")
     if question == "д":      # если мы хотим начать игру с начало, нужно очистить списки
