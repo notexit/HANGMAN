@@ -18,7 +18,7 @@ def start(letter):  #начало игры
     print(blanks)
     while blanks != word:
         blanks = "-" * len(word)
-        letter = input("# Введите букву --> ").upper() #предлагается ввод с клавиатуры и записывает ваше значение в letter    
+        letter = input("# Введите букву --> ").upper() #предлагается ввод с клавиатуры и записывает ваше значение в letter
         if len(letter) == 1 :   #если длина вашего ввода равна 1
             if letter in ABC_RU:   #если вваш ввод (в данном случае буква) есть в алфавите
                 if letter in name:  #если ваша буква есть в списке name
@@ -42,6 +42,7 @@ def start(letter):  #начало игры
                             print(lose[i])
                         if errors == 8:
                             print("Вы проиграли")
+                            print(word)
                             break
             else:
                 print("Я не знаю такого символа")
@@ -55,7 +56,6 @@ def start(letter):  #начало игры
             print("Введите одну букву")
     if blanks == word: #это выполняется, если вы угадали слово
             print("Вы отгадали слово: {0}, поздравляю вы спасли человека".format(word))    #ввывод что вы угадали слово
-            print("Это слово означает : {0}".format(tex[word]))
             print(win)
     question = input("Еще раз?  'Д' - что бы сыграть еще раз, или 'ENTER' - для выхода : ")
     if question == "д":      # если мы хотим начать игру с начало, нужно очистить списки

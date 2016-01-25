@@ -1,7 +1,8 @@
 import random
+import word
 
 def words():
-    lis = ["СНЕГОПАД", "АВТОМОБИЛЬ", "СТУЛ", "ПЕС", "КОТ", "СТОЛ", "НОВОСТИ", "ГЛАЗ", "МИНУС", "ВРАЧ", "КОНЬ"]
+    lis = word.lis
     return random.choice(lis)
 
 #будет показывать когда вы проиграли
