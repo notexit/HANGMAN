@@ -6,10 +6,11 @@ import data #импортируем из созданого файла data.py
 #импортируем с файла data.py и присвоиваим им имя для удобства
 win = data.you_win
 lose = data.you_lose
-tex = data.tex
 ABC = data.ABC
 ABC_RU = data.ABC_RU
 menu = data.menu
+
+score = []
 
 def start(letter):  #начало игры
     word = data.words()
@@ -42,7 +43,7 @@ def start(letter):  #начало игры
                             print(lose[i])
                         if errors == 8:
                             print("Вы проиграли")
-                            print(word)
+                            #print(word)
                             break
             else:
                 print("Я не знаю такого символа")
@@ -73,11 +74,15 @@ if __name__ == '__main__':
     no = []         #сюда будут сохранятся буквы, которые вы уже ввели
 
     def input_choice():
-        choice = input("Ввод:  ")
-        return choice
+        while 2:
+            choice = input("Ввод:  ")
+            if choice == "1":    #если вы выбираете 1, игра начинается
+                return start(choice)
+            elif choice == "2":
+                data.help()
+            else:
+                print("Я ТАКОЙ КОМАНДЫ НЕ ЗНАЮ")
+        
 
     choice = input_choice()
-    if choice == "1":    #если вы выбираете 1, игра начинается
-        start(choice)
-    else:
-        print("Я ТАКОЙ КОМАНДЫ НЕ ЗНАЮ, ПОКА")
+
