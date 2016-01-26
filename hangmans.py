@@ -16,16 +16,17 @@ def start(letter):  #начало игры
             sc.append(data.cost_letters[letter])
             if sum(sc) <= 100:
                 print("У Вас на счету {0} очков".format(sum(sc)))
-            else:
-                print("У Вас больше 100 очков, Вы победили")
-                sys.exit()  #если 25 очков набрали это выйдет с игры
+                
     word = data.words()
     print("Вам нужно отгадать слово из {0} букв".format(len(word)))
     blanks = "-" * len(word)
     print(blanks)
     while blanks != word:
         blanks = "-" * len(word)
-        letter = input("# Введите букву --> ").upper() #предлагается ввод с клавиатуры и записывает ваше значение в letter
+        if bot == [3]:
+            letter = data.bot()
+        else:
+            letter = input("# Введите букву --> ").upper() #предлагается ввод с клавиатуры и записывает ваше значение в letter
         if len(letter) == 1 :   #если длина вашего ввода равна 1
             if letter in ABC_RU:   #если вваш ввод (в данном случае буква) есть в алфавите
                 if letter in name:  #если ваша буква есть в списке name
@@ -68,17 +69,18 @@ def start(letter):  #начало игры
             print("И получили дополнительно 10 очков, вас счет {0}".format(sum(sc)))
             print(win)
     if sum(sc) >= 100:
+        print("У Вас больше 100 очков, Вы победили")
         question = input("Еще раз?  'Д' - что бы сыграть еще раз, или 'ENTER' - для выхода : ")
         if question == "д":      # если мы хотим начать игру с начало, нужно очистить списки
             no[:] = []
             name[:] = []
-            start(letter)   #игра начинается с начало
+            start(True)   #игра начинается с начало
         else:
             sys.exit()  #закрывает программу
     else:
         no[:] = []
         name[:] = []
-        start(1)
+        start(True)
 
 if __name__ == '__main__':
 
@@ -87,14 +89,18 @@ if __name__ == '__main__':
     name = []       #сюда будут сохранятся буквы, слова
     no = []         #сюда будут сохранятся буквы, которые вы уже ввели
     sc = []
+    bot = []
 
     def input_choice():
-        while 2:
+        while True:
             choice = input("Ввод:  ")
             if choice == "1":    #если вы выбираете 1, игра начинается
                 return start(choice)
             elif choice == "2":
                 data.help()
+            elif choice == "3":
+                bot.append(3)
+                return start(choice)
             else:
                 print("Я ТАКОЙ КОМАНДЫ НЕ ЗНАЮ")
 
