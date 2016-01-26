@@ -14,10 +14,10 @@ def start(letter):  #начало игры
     def score(sc):      #функция подсчета балов
         if letter in data.cost_letters:
             sc.append(data.cost_letters[letter])
-            if sum(sc) <= 25:
+            if sum(sc) <= 100:
                 print("У Вас на счету {0} очков".format(sum(sc)))
             else:
-                print("У Вас больше 25 очков, Вы победили")
+                print("У Вас больше 100 очков, Вы победили")
                 sys.exit()  #если 25 очков набрали это выйдет с игры
     word = data.words()
     print("Вам нужно отгадать слово из {0} букв".format(len(word)))
@@ -64,14 +64,21 @@ def start(letter):  #начало игры
             print("Введите одну букву")
     if blanks == word: #это выполняется, если вы угадали слово
             print("Вы отгадали слово: {0}, поздравляю вы спасли человека".format(word))    #ввывод что вы угадали слово
+            sc.append(20)
+            print("И получили дополнительно 10 очков, вас счет {0}".format(sum(sc)))
             print(win)
-    question = input("Еще раз?  'Д' - что бы сыграть еще раз, или 'ENTER' - для выхода : ")
-    if question == "д":      # если мы хотим начать игру с начало, нужно очистить списки
+    if sum(sc) >= 100:
+        question = input("Еще раз?  'Д' - что бы сыграть еще раз, или 'ENTER' - для выхода : ")
+        if question == "д":      # если мы хотим начать игру с начало, нужно очистить списки
+            no[:] = []
+            name[:] = []
+            start(letter)   #игра начинается с начало
+        else:
+            sys.exit()  #закрывает программу
+    else:
         no[:] = []
         name[:] = []
-        start(letter)   #игра начинается с начало
-    else:
-        sys.exit()  #закрывает программу
+        start(1)
 
 if __name__ == '__main__':
 
