@@ -10,6 +10,11 @@ ABC = data.ABC
 ABC_RU = data.ABC_RU
 menu = data.menu
 
+def restart():
+    no[:] = []
+    name[:] = []
+    start(True)
+
 def start(letter):  #начало игры
     def score(sc):      #функция подсчета балов
         if letter in data.cost_letters:
@@ -72,15 +77,11 @@ def start(letter):  #начало игры
         print("У Вас больше 100 очков, Вы победили")
         question = input("Еще раз?  'Д' - что бы сыграть еще раз, или 'ENTER' - для выхода : ")
         if question == "д":      # если мы хотим начать игру с начало, нужно очистить списки
-            no[:] = []
-            name[:] = []
-            start(True)   #игра начинается с начало
+            restart()
         else:
             sys.exit()  #закрывает программу
     else:
-        no[:] = []
-        name[:] = []
-        start(True)
+        restart()
 
 if __name__ == '__main__':
 
