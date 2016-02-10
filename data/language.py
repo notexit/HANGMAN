@@ -5,7 +5,6 @@
 class Language(object):
     """docstring for Language"""
     def __init__(self, lang):
-        #super(Language, self).__init__()
         self.lang = lang
 
     def language(self):
@@ -14,11 +13,8 @@ class Language(object):
         elif self.lang == "EN":
             return "EN"
 
-
-class Menu(Language):
-    """docstring for Menu"""
     def menu(self):
         if self.lang == "RU":
-            print("Добро пожаловать")
+            return("Добро пожаловать")
         elif self.lang == "EN":
-            print("Welkome")
+            return("Welkome")

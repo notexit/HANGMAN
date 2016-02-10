@@ -1,12 +1,20 @@
 '''
 @author: notexit
 '''
-from data.location import Menu 
+from data.language import Language as lang
+from data.help import Help as help
+
+
 
 ABC = []
 
-i = input("Choice you language (EN or RU): ").upper()
-ABC.append(i)
-lan = Menu(i)
+choice = input("Choice you language (EN or RU): ").upper()
+ABC.append(choice)
+lan = lang(choice)
 print(lan.menu())
-print(ABC)
+
+print(help.help(ABC))
+
+if __name__ == "__main__":
+
+    pass
